@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --radius-2xl: 1.5rem;
+  --radius-xl: 1rem;
+
+  --color-background: hsl(40 60% 98%);
+  --color-foreground: hsl(20 10% 20%);
+  
+  --color-primary: hsl(15 90% 65%);
+  --color-primary-foreground: white;
+  
+  --color-secondary: hsl(120 40% 60%);
+  --color-secondary-foreground: white;
+  
+  --color-accent: hsl(45 95% 60%);
+  --color-accent-foreground: hsl(45 95% 20%);
+  
+  --color-card: hsl(0 0% 100%);
+  --color-muted: hsl(20 10% 90%);
+  --color-muted-foreground: hsl(20 10% 40%);
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    @apply font-sans;
+  }
+}
+
+@layer components {
+  .btn-push {
+    @apply relative flex items-center justify-center px-6 py-2 rounded-2xl font-bold transition-all duration-75;
+    box-shadow: 0 6px 0 hsl(15 90% 45%);
+    background-color: var(--color-primary);
+    color: white;
+  }
+  
+  .btn-push:active {
+    box-shadow: 0 2px 0 hsl(15 90% 45%);
+    transform: translateY(4px);
+  }
+
+  .btn-push-secondary {
+    @apply relative flex items-center justify-center px-6 py-2 rounded-2xl font-bold transition-all duration-75;
+    box-shadow: 0 6px 0 hsl(120 40% 40%);
+    background-color: var(--color-secondary);
+    color: white;
+  }
+  
+  .btn-push-secondary:active {
+    box-shadow: 0 2px 0 hsl(120 40% 40%);
+    transform: translateY(4px);
+  }
+
+  .btn-push-accent {
+    @apply relative flex items-center justify-center px-6 py-2 rounded-2xl font-bold transition-all duration-75;
+    box-shadow: 0 6px 0 hsl(45 95% 40%);
+    background-color: var(--color-accent);
+    color: var(--color-accent-foreground);
+  }
+  
+  .btn-push-accent:active {
+    box-shadow: 0 2px 0 hsl(45 95% 40%);
+    transform: translateY(4px);
+  }
+
+  .card-sticker {
+    @apply bg-card rounded-2xl border-none;
+    box-shadow: 0 8px 0 rgba(0,0,0,0.06);
+  }
+}
+
+.pet-float {
+  animation: float 2.5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
